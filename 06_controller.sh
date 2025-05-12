@@ -46,10 +46,10 @@ sed -i -E "s/^SlurmctldHost.*/SlurmctldHost=$(hostname)/" slurm.conf
 #sudo cp slurm.conf gres.conf cgroup.conf $SCHEDROOT/slurm/etc
 sudo cp slurm.conf cgroup.conf $SCHEDROOT/slurm/etc
 
-#sudo mkdir /var/spool/slurmctld
-#sudo chown slurm:slurm /var/spool/slurmctld
+sudo mkdir /var/spool/slurmctld
+sudo chown slurm:slurm /var/spool/slurmctld
 #sudo mkdir /var/log/slurmctld.log
-#sudo chown slurm:slurm /var/log/slurmctld.log
+sudo chown slurm:slurm /var/log/slurmctld.log
 
 sudo cp slurm-22.05.3/etc/slurmctld.service /usr/lib/systemd/system
 sudo cp slurm-22.05.3/etc/slurmctld.service /etc/systemd/system
