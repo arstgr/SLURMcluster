@@ -2,7 +2,7 @@
 
 mount="/share"
 #plae the IP address of the headnode here
-server="IP of HeadNode"
+server="10.0.0.4"
 
 sudo apt install nfs-common -y
 sudo mkdir $mount
