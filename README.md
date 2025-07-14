@@ -93,3 +93,28 @@ To check if things look fine, try
 ```
 sudo systemctl status slurmd.service
 ```
+
+## Bug in nvidia container library
+Due to a bug in nvidia container library, you may face with an error like this
+```
+slurmstepd: error: pyxis: container start failed with error code: 1
+slurmstepd: error: pyxis: printing contents of log file ...
+slurmstepd: error: pyxis:     nvidia-container-cli: initialization error: open failed: /proc/self/ns/mnt: permission denied
+slurmstepd: error: pyxis:     [ERROR] /etc/enroot/hooks.d/98-nvidia.sh exited with return code 1
+slurmstepd: error: pyxis: couldn't start container
+```
+
+There are a couple of workarounds to resolve this issue. One of the easiest ones is to disable the container hooks. To do this, on all compute nodes run
+```
+sudo mv /etc/enroot/hooks.d/98-nvidia.sh /etc/enroot/hooks.d/98-nvidia.sh.disabled
+```
+Afterwards, to submit slurm jobs try for example
+```
+srun --gres=gpu:4   -N 1 --ntasks=4  --container-image=nvcr.io/nvidia/pytorch:25.06-py3 --container-mounts=/dev:/dev python -c "import torch; print(torch.cuda.is_available())"
+```
+
+or 
+
+```
+srun --gres=gpu:4   -N 1 --ntasks=4   --export=ALL,ENROOT_ENABLE_GPU=1,PYXIS_OPTIONS="--no-nv --remap-uid=0 --remap-gid=0",ENROOT_NO_GPU_HOOK=1   --container-image=nvcr.io/nvidia/pytorch:25.06-py3 --container-mounts=/proc/self/ns:/proc/self/ns,/run/munge:/run/munge,/share/sched/slurm/etc:/etc/slurm,/dev:/dev python -c "import torch; print(torch.cuda.is_available())"
+```
