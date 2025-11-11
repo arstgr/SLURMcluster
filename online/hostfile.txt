@@ -1,0 +1,2 @@
+#Put IP of all nodes here
+#IP of both headnode and compute nodes
