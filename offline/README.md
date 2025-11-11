@@ -12,9 +12,9 @@ and change directory to
 cd build/offline
 ```
 
-To proced, you need to prepare a hostfile from the nodes in the cluster. The host file could include the headnode also (in which case the headnode will act as one of the compute nodes as well) or could only include the compute nodes. The host file is formatted as a list of files, with each host listed on a separate line. Additionally a client file (copy of the hostfile, without the headnode), named as `clientfile.txt` is also necessary.  
+To proced, you need to prepare a hostfile from the nodes in the cluster. The host file is formatted as a list of hostnames (we will talk about how to make hostnames resolvable), with each host listed on a separate line. Additionally a client file (copy of the hostfile, without the headnode), named as `clientfile.txt` is also necessary.  
 
-Next, setup the shared file system and local NVMes. The shared file system could be mounted as an external lustre/ANF or built as an NFS drive out of the local disks on the headnode. The default setup currently uses 3 NVMe disks from one of the nodes and leaves the rest of the NVMes for local storage. The scripts assume the shared file system is mounted as "/share". 
+Next, setup the shared file system and local NVMes. The shared file system could be mounted as an external lustre/ANF or built as an NFS drive out of the local disks on the headnode. The default setup currently uses 3 NVMe disks from one of the nodes (let's call this node host node) and leaves the rest of the NVMes for local storage. The scripts assume the shared file system is mounted as "/share". 
 
 If you are going to use an NFS drive, you should install the kernels necessary for nfs server on the host node. To do this, first download the package into your local machine,
 ```
