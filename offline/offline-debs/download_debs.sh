@@ -11,8 +11,8 @@ wget https://uk.ports.ubuntu.com/ubuntu-ports/pool/main/libe/libevent/libevent-d
 wget https://uk.ports.ubuntu.com/ubuntu-ports/pool/main/libe/libevent/libevent-extra-2.1-7t64_2.1.12-stable-9ubuntu2_arm64.deb
 wget https://uk.ports.ubuntu.com/ubuntu-ports/pool/main/libe/libevent/libevent-openssl-2.1-7t64_2.1.12-stable-9ubuntu2_arm64.deb
 wget https://uk.ports.ubuntu.com/ubuntu-ports/pool/main/libe/libevent/libevent-pthreads-2.1-7t64_2.1.12-stable-9ubuntu2_arm64.deb
-wget http://ports.ubuntu.com/pool/universe/h/hwloc/libhwloc-dev_2.10.0-1build1_arm64.deb
-wget http://archive.ubuntu.com/ubuntu/pool/universe/h/hwloc/libhwloc15_2.10.0-1build1_amd64.deb
+wget https://np.ports.ubuntu.com/pool/universe/h/hwloc/libhwloc-dev_2.10.0-1build1_arm64.deb
+wget https://np.ports.ubuntu.com/pool/universe/h/hwloc/libhwloc15_2.10.0-1build1_arm64.deb
 
 wget https://np.ports.ubuntu.com/pool/universe/m/munge/libmunge-dev_0.5.15-4build1_arm64.deb
 wget https://np.ports.ubuntu.com/pool/universe/m/munge/libmunge2_0.5.15-4build1_arm64.deb
